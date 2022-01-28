@@ -1,0 +1,24 @@
+* {
+    font-family: Helvetica, sans-serif;
+    margin: 0px;
+}
+
+h1 {
+    text-align: center;
+    background-color: #969696;
+    color: #ffffff;
+    padding: 35px;
+}
+
+h3 {
+    padding: 20px;
+}
+
+table, td, th {
+    border: 1px solid black;
+  }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
