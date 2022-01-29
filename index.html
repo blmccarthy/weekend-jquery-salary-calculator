@@ -12,20 +12,22 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <h1>Salary Calculator</h1>
+        <h1>💸 Salary Calculator 🧮</h1>
+    <div id="main">
         <h3>Add Employee</h3>
 
-        <input id="first-name" placeholder="First Name" type="text">
-        <input id="last-name" placeholder="Last Name" type="text">
-        <input id="id-num" placeholder="ID #" type="number">
-        <input id="job-title" placeholder="Job Title" type="text">
-        <input id="ann-salary" placeholder="Annual Salary" type="number">
-
-        <button id="btnSubmit">Submit</button>
+        <div id="inputContainer">
+            <input id="first-name" placeholder="First Name" type="text">
+            <input id="last-name" placeholder="Last Name" type="text">
+            <input id="id-num" placeholder="ID #" type="number">
+            <input id="job-title" placeholder="Job Title" type="text">
+            <input id="ann-salary" placeholder="Annual Salary" type="number">
+            <button id="btnSubmit">Submit</button>
+        </div>
 
         <h3>Employees</h3>
 
-        <table>
+        <table id="employee-table">
             <thead>
                 <tr>
                     <th>First Name</th>
@@ -33,16 +35,21 @@
                     <th>ID #</th>
                     <th>Job Title</th>
                     <th>Annual Salary</th>
-                    <th>Action</th>
+                    <th>&emsp;</th>
                 </tr>
             </thead>
             <tbody>
             </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan='6'>&nbsp;</td>
+                </tr>
+            </tfoot>
         </table>
 
         <div class="totalMonthlyContainer">
         <h3>Total Monthly: $<span id=totalMonthly>0</span></h3>
         </div>
-        
+    </div> 
     </body>
 </html>
