@@ -20,16 +20,16 @@ function handleSubmit(){
     annSalary = Number(Math.round(($( '#ann-salary' ).val())+'e'+2)+'e-'+2); 
 
     // Alert if missing input info
-    // if (
-    //     firstName === '' || 
-    //     lastName === '' || 
-    //     idNum === '' || 
-    //     jobTitle === '' || 
-    //     annSalary === '' 
-    // ){
-    //     alert('Please Ensure you have input all fields!')
-    //     return false;
-    // }
+    if (
+        firstName === '' || 
+        lastName === '' || 
+        idNum === '' || 
+        jobTitle === '' || 
+        annSalary === '' 
+    ){
+        alert('Please Ensure you have input all fields!')
+        return;
+    }
 
     // empties input fields
     $( 'input' ).val( '' );
@@ -73,25 +73,17 @@ function handleDelete(){
 
 function calcMonthlyTotal(){
 
-    // Calculate Monthly total w/ Rounding
+    // Calculate Monthly & Round
     let annSalaryTotal = 0;
     for (let employee of employees){
         annSalaryTotal += Number(employee.annSalary);
     }
-
-    console.log('annSalaryTotal:', annSalaryTotal);
     let monthlyTotalRounded = Number(Math.round((annSalaryTotal / 12)+'e'+2)+'e-'+2);
-    console.log('monthlyTotalRounded', monthlyTotalRounded);
-    let monthlyTotalDecimals = Number(monthlyTotalRounded.toFixed(2)); // add float: 0.00
-    console.log('monthlyTotalDecimals:', monthlyTotalDecimals);  
-    let monthlyTotalCommas = monthlyTotalDecimals.toLocaleString("en-US"); // add commas: 1,000
-    console.log('monthlyTotalCommas:', monthlyTotalCommas);
-    
+    let monthlyTotalDisplay = monthlyTotalRounded.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});   
 
     // Empty + append the Monthly total to DOM
     $( '#totalMonthly' ).empty();
-    $( '#totalMonthly' ).append(monthlyTotalCommas);
-    
+    $( '#totalMonthly' ).append(monthlyTotalDisplay);
     checkMonthlyMax(monthlyTotalRounded);
 
 } // end calcMonthlyTotal
