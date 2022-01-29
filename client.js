@@ -14,19 +14,19 @@ function handleSubmit(){
     lastName = $( '#last-name' ).val();
     idNum = $( '#id-num' ).val();
     jobTitle = $( '#job-title' ).val();
-    annSalary = $( '#ann-salary' ).val();
+    annSalary = Number(Math.round(($( '#ann-salary' ).val())+'e'+2)+'e-'+2); // Rounding
 
-    // Alert if missing fields
-    if (
-        firstName === '' || 
-        lastName === '' || 
-        idNum === '' || 
-        jobTitle === '' || 
-        annSalary === '' 
-    ){
-        alert('Please Ensure you have input all fields!')
-        return false;
-    }
+    // Alert if missing input info
+    // if (
+    //     firstName === '' || 
+    //     lastName === '' || 
+    //     idNum === '' || 
+    //     jobTitle === '' || 
+    //     annSalary === '' 
+    // ){
+    //     alert('Please Ensure you have input all fields!')
+    //     return false;
+    // }
 
     // empties input fields
     $( 'input' ).val( '' );
@@ -53,15 +53,20 @@ function handleSubmit(){
             <td>${employee.idNum}</td>
             <td>${employee.jobTitle}</td>
             <td>$${employee.annSalary}</td>
+            <td><button class="btnDelete">Delete</button></td>
         </tr>`); 
 
         annSalaryTotal += Number(employee.annSalary);
     }
-    monthlyTotal = annSalaryTotal / 12;
+    // Divides annSalaryTotal by 12 (monthly),
+    monthlyTotal = Number(Math.round((annSalaryTotal / 12)+'e'+2)+'e-'+2); // Rounds
 
     // Empty + append the Monthly total
     $( '#totalMonthly' ).empty();
-    $( '#totalMonthly' ).append(monthlyTotal); // need to round
+    $( '#totalMonthly' ).append(monthlyTotal);
+    if (monthlyTotal > 20000){
+        $( '.totalMonthlyContainer' ).css('background-color', 'red')
+    }
     
 }
 

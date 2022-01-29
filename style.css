@@ -16,9 +16,18 @@ h3 {
 
 table, td, th {
     border: 1px solid black;
+    text-align: center;
   }
 
 table {
     width: 100%;
     border-collapse: collapse;
+}
+
+tr:nth-child(even) {
+    background-color: #e6e6e6;
+}
+
+thead {
+    background-color: #d4d4d4;
 }
